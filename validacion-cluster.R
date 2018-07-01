@@ -4,6 +4,8 @@ library(factoextra)
 library(cluster)
 library(fpc)
 library(NbClust)
+library(mclust)
+library(corrplot)
 
 #cargando la data y creando un data frame escalado
 
@@ -91,4 +93,31 @@ fviz_cluster(dsFit, dataPoints, geom = "point")
 
 
 #Cluster algoritmo EM
+
+mm = Mclust(dataPoints)
+plot(mm)
+summary(mm)
+
+
+
+#Reducir la dimensionalidad con el análisis de componentes principales (PCA)
+
+bh <- read.csv("data/BostonHousing.csv") 
+
+
+corr <- cor(bh[,-14])
+corrplot(corr, method="color")
+
+bh.pca <- prcomp(bh[,-14], scale = TRUE) 
+
+print(bh.pca)
+
+summary(bh.pca) 
+
+plot(bh.pca)
+plot(bh.pca, type = "lines") 
+biplot(bh.pca, col = c("gray", "black")) 
+
+bh.pca$rotation 
+bh.pca$sdev 
 
