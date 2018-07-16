@@ -29,3 +29,4 @@ clarafit$medoids
 #Fabricando el PLOT
 
 fviz_cluster(clarafit)
+

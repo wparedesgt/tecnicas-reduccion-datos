@@ -120,4 +120,3 @@ biplot(bh.pca, col = c("gray", "black"))
 
 bh.pca$rotation 
 bh.pca$sdev 
-

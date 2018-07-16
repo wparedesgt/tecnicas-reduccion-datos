@@ -37,3 +37,4 @@ new_img_mb <- getcent_mb[pr_mb, ]
 dim(new_img_mb) <- c(nrow(img_resize), ncol(img_resize), 3)
 
 imageShow(new_img_mb)
+
